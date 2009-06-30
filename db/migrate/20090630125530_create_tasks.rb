@@ -1,7 +1,8 @@
 class CreateTasks < ActiveRecord::Migration
   def self.up
     create_table :tasks do |t|
-      t.string :name
+      t.integer :project_id, :null => false
+      t.string :name, :null => false
       t.text :description
 
       t.timestamps
