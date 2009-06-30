@@ -2,12 +2,14 @@
 
 <table>
   <tr>
+    <th>Project</th>
     <th>Name</th>
     <th>Description</th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
+    <td><%=h task.project.name %></td>
     <td><%=h task.name %></td>
     <td><%=h task.description %></td>
     <td><%= link_to 'Show', task %></td>
