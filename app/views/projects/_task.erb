@@ -1,0 +1,14 @@
+<div id="phone_fields_<%= task_counter %>">
+  <% field_set_tag do %>
+    <% fields_for "application[phones_attributes][#{task_counter}]", task do |task_form| %>
+      <%= task_form.hidden_field :id %>
+      <%= task_form.hidden_field :_delete, :value => 0 %>
+
+      <%= link_to "Delete", '#', { :id => "delete_phone_#{task_counter}", :class => "delete_task" } %>
+
+      <div>
+        <%= render :partial => 'tasks/form', :locals => { :f => task_form } %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

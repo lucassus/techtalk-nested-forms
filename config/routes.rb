@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :tasks
 
-  map.resources :projects
+  map.resources :projects, :collection => { :add_task => :get }
 
   # The priority is based upon order of creation: first created -> highest priority.
 

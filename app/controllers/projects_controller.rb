@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
+    3.times { @project.tasks.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -71,6 +72,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def add_task
+    render_nested_form_for Task
+  end
+
   # DELETE /projects/1
   # DELETE /projects/1.xml
   def destroy
@@ -82,4 +87,15 @@ class ProjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+  def render_nested_form_for(model)
+    model_name = model.to_s.downcase
+    record = model.new
+
+    render :partial => "#{model_name.pluralize}/form",
+      :locals => { "#{model_name}_counter".intern => params[:counter].to_i, "#{model_name}".intern => record }
+  end
+
 end
