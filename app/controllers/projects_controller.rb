@@ -25,7 +25,6 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
-    3.times { @project.tasks.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -94,7 +93,7 @@ class ProjectsController < ApplicationController
     model_name = model.to_s.downcase
     record = model.new
 
-    render :partial => "#{model_name.pluralize}/form",
+    render :partial => "projects/#{model_name}",
       :locals => { "#{model_name}_counter".intern => params[:counter].to_i, "#{model_name}".intern => record }
   end
 

@@ -2,6 +2,12 @@
 
 <% form_for(@task) do |f| %>
   <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name_id, 'Project' %><br />
+    <%= f.collection_select :project_id, Project.all, :id, :name %>
+  </p>
+
   <%= render :partial => 'tasks/form', :locals => { :f => f } %>
 
   <p>

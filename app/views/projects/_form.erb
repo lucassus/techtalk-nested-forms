@@ -10,5 +10,5 @@
 
 <% field_set_tag 'Tasks', :id => 'tasks' do %>
   <%= render :partial => 'projects/task', :collection => @project.tasks %>
-  <%= link_to "Add", add_task_projects_path, :id => 'add_task' %>
+  <%= link_to "Add", '#', :id => 'add_task' %>
 <% end %>

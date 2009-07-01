@@ -8,6 +8,19 @@
   <%=h @project.description %>
 </p>
 
+<div id="tasks" style="margin-left: 20px">
+  <% for task in @project.tasks %>
+    <p>
+      <b>Task name:</b>
+      <%=h task.name %>
+    </p>
+    
+    <p>
+      Description:
+      <%=h task.description %>
+    </p>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

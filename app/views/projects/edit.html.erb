@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'form-project' %>
+<% end %>
+
 <h1>Editing project</h1>
 
 <% form_for(@project) do |f| %>
